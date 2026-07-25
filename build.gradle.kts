@@ -1,7 +1,3 @@
-import org.gradle.internal.impldep.org.apache.http.client.methods.RequestBuilder.options
-import org.jetbrains.gradle.ext.settings
-import org.jetbrains.gradle.ext.copyright
-
 plugins {
     java
     idea
@@ -75,21 +71,6 @@ dependencies {
     implementation("com.google.guava:guava:${guavaVersion}")
     implementation("org.flywaydb:flyway-core:${flywayVersion}")
     implementation("com.unascribed:flexver-java:${flexverVersion}")
-}
-
-idea {
-    project {
-        settings {
-            copyright {
-                val patchyCopyrightProfileName = "Patchy"
-                useDefault = patchyCopyrightProfileName
-
-                profiles.create(patchyCopyrightProfileName) {
-                    notice = file("gradle/copyright-header.txt").readText(Charsets.UTF_8)
-                }
-            }
-        }
-    }
 }
 
 java {
